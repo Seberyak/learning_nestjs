@@ -1,6 +1,6 @@
 import {prop} from '@typegoose/typegoose';
 
-export  class User {
+export  class User{
     @prop()
     username!: string;
 

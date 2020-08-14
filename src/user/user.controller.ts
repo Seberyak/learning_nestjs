@@ -1,11 +1,12 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import { Body, Controller, Get,  Post } from '@nestjs/common';
 import {UserService} from './user.service';
 import {User} from './user';
-
+import { ValidateService } from '../validate/validate.service';
+import {MError} from '../Errors/MError';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService:UserService) {}
+  constructor(private readonly userService:UserService,private validateService:ValidateService) {}
 
   @Get('')
   async User():Promise <string>{
@@ -19,13 +20,17 @@ export class UserController {
   }
 
   @Get('createUser')
-  async createUserGet(): Promise<object> {
+  async createUserGet(): Promise<User> {
     return await this.userService.createUser();
   }
 
   @Post('createUser')
-  async createUser(@Body() usr: string): Promise<string| object> {
-    return await this.userService.createCustomUser(usr);
+  async createUser(@Body() usr: string): Promise<User> {
+    if(this.validateService.schema.validate(usr).hasOwnProperty('error'))
+      throw new MError(400,"Validation Error");
+
+    else
+      return await  this.userService.createCustomUser(usr);
   }
 
 
