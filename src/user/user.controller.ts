@@ -1,12 +1,32 @@
-import { Body, Controller, Get,  Post } from '@nestjs/common';
+import { Controller, createParamDecorator, ExecutionContext, Get, Post, Put } from '@nestjs/common';
 import {UserService} from './user.service';
 import {User} from './user';
-import { ValidateService } from '../validate/validate.service';
-import {MError} from '../Errors/MError';
+import {IUser} from './IUser';
+import {user_schema} from '../validate/helper-schemas';
+import { validationError } from '../Errors/ValidationError';
+import { userIdScheme } from '../validate/AGetUserIdScheme';
+import Joi from '../joi';
+import { UserUpdateScheme } from '../validate/APutUserScheme';
+
+export const Validate = createParamDecorator((schema,ctx:ExecutionContext)=>{
+  const data = {...ctx.switchToHttp().getRequest().body, ...ctx.switchToHttp().getRequest().query, ...ctx.switchToHttp().getRequest().params};
+  try {
+    const  {value, error} = schema.validate(data);
+    // console.log(value);
+    return  !error? value: validationError();
+  }
+  catch (error){
+    validationError()
+  }
+
+})
+
+
+
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService:UserService,private validateService:ValidateService) {}
+  constructor(private readonly userService:UserService) {}
 
   @Get('')
   async User():Promise <string>{
@@ -25,12 +45,24 @@ export class UserController {
   }
 
   @Post('createUser')
-  async createUser(@Body() usr: string): Promise<User> {
-    if(this.validateService.schema.validate(usr).hasOwnProperty('error'))
-      throw new MError(400,"Validation Error");
+  async createUser(@Validate(user_schema.keys({
+    id:Joi.any().strip(),
+    repeat_password: Joi.ref("password")
+  })) usr: IUser): Promise<User> {
 
-    else
-      return await  this.userService.createCustomUser(usr);
+      return await this.userService.createCustomUser(usr);
+    }
+
+  @Get('getUser/:id')
+  async getUser(@Validate(userIdScheme) data){
+
+    return await  this.userService.getUserById(data.id);
+  }
+
+  @Put('updateUser')
+  async updateUser(@Validate(UserUpdateScheme) data){
+
+    return await this.userService.updateUser(data);
   }
 
 

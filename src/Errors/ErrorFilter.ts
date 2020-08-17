@@ -1,6 +1,7 @@
 import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
 import { Request, Response } from 'express';
 import {MError} from './MError';
+import { ExceptionHandler } from '@nestjs/core/errors/exception-handler';
 
 @Catch(MError)
 export class ErrorFilter implements ExceptionFilter{

@@ -30,6 +30,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "fallbackPool": [
       [
+        "@hapi/joi",
+        "npm:17.1.1"
+      ],
+      [
         "@nestjs/cli",
         "npm:7.4.1"
       ],
@@ -110,6 +114,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:17.2.0"
       ],
       [
+        "mongodb",
+        "npm:3.6.0"
+      ],
+      [
         "mongoose",
         "npm:5.9.28"
       ],
@@ -165,6 +173,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@hapi/joi", "npm:17.1.1"],
             ["@nestjs/cli", "npm:7.4.1"],
             ["@nestjs/common", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:7.4.2"],
             ["@nestjs/config", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:0.5.0"],
@@ -185,6 +194,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:2.22.0"],
             ["jest", "npm:26.0.1"],
             ["joi", "npm:17.2.0"],
+            ["mongodb", "npm:3.6.0"],
             ["mongoose", "npm:5.9.28"],
             ["nestjs-typegoose", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:7.1.32"],
             ["prettier", "npm:1.19.1"],
@@ -705,6 +715,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@hapi-hoek-npm-9.0.4-aa65f1790b-d000f60d5e.zip/node_modules/@hapi/hoek/",
           "packageDependencies": [
             ["@hapi/hoek", "npm:9.0.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@hapi/joi", [
+        ["npm:17.1.1", {
+          "packageLocation": "./.yarn/cache/@hapi-joi-npm-17.1.1-b9347a858d-7547ccf2a8.zip/node_modules/@hapi/joi/",
+          "packageDependencies": [
+            ["@hapi/joi", "npm:17.1.1"],
+            ["@hapi/address", "npm:4.1.0"],
+            ["@hapi/formula", "npm:2.0.0"],
+            ["@hapi/hoek", "npm:9.0.4"],
+            ["@hapi/pinpoint", "npm:2.0.0"],
+            ["@hapi/topo", "npm:5.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7331,6 +7355,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["saslprep", "npm:1.0.3"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:3.6.0", {
+          "packageLocation": "./.yarn/cache/mongodb-npm-3.6.0-1deea15e1a-589a434b34.zip/node_modules/mongodb/",
+          "packageDependencies": [
+            ["mongodb", "npm:3.6.0"],
+            ["bl", "npm:2.2.0"],
+            ["bson", "npm:1.1.5"],
+            ["denque", "npm:1.4.1"],
+            ["require_optional", "npm:1.0.1"],
+            ["safe-buffer", "npm:5.2.1"],
+            ["saslprep", "npm:1.0.3"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["mongoose", [
@@ -9346,6 +9383,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["simple-sever", "workspace:."],
+            ["@hapi/joi", "npm:17.1.1"],
             ["@nestjs/cli", "npm:7.4.1"],
             ["@nestjs/common", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:7.4.2"],
             ["@nestjs/config", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:0.5.0"],
@@ -9366,6 +9404,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:2.22.0"],
             ["jest", "npm:26.0.1"],
             ["joi", "npm:17.2.0"],
+            ["mongodb", "npm:3.6.0"],
             ["mongoose", "npm:5.9.28"],
             ["nestjs-typegoose", "virtual:a5448ddf51181993da8fb85d0cbcf51eae210449898bae84746925d1ff8dc95d1dd88f0e2db7a4a0d5a723c3b45272ded560ea970a3c8f5af9182cacbed56075#npm:7.1.32"],
             ["prettier", "npm:1.19.1"],

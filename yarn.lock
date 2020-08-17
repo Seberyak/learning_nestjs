@@ -431,7 +431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/address@npm:^4.1.0":
+"@hapi/address@npm:^4.0.1, @hapi/address@npm:^4.1.0":
   version: 4.1.0
   resolution: "@hapi/address@npm:4.1.0"
   dependencies:
@@ -451,6 +451,19 @@ __metadata:
   version: 9.0.4
   resolution: "@hapi/hoek@npm:9.0.4"
   checksum: d000f60d5e30db7ed2b838a7ec4a757542f04036c8eb431328fd1139f3f7dbd400a2c7d86acbbaf8b8da11dee6f8ae706f6d88bd71c02b3c5f16fd3f6223aa09
+  languageName: node
+  linkType: hard
+
+"@hapi/joi@npm:^17.1.1":
+  version: 17.1.1
+  resolution: "@hapi/joi@npm:17.1.1"
+  dependencies:
+    "@hapi/address": ^4.0.1
+    "@hapi/formula": ^2.0.0
+    "@hapi/hoek": ^9.0.0
+    "@hapi/pinpoint": ^2.0.0
+    "@hapi/topo": ^5.0.0
+  checksum: 7547ccf2a8168e4f68f630069ab069f94d0689bd18a034a6dea40cc9c7e88776665670316f65bdd29068dccde111f3d7164504cfaf6db183110b64f36c5643dd
   languageName: node
   linkType: hard
 
@@ -6408,6 +6421,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"mongodb@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "mongodb@npm:3.6.0"
+  dependencies:
+    bl: ^2.2.0
+    bson: ^1.1.4
+    denque: ^1.4.1
+    require_optional: ^1.0.1
+    safe-buffer: ^5.1.2
+    saslprep: ^1.0.0
+  dependenciesMeta:
+    saslprep:
+      optional: true
+  checksum: 589a434b3482a75ed78cf0116ed08ef30c58199a62eaa781b355a76d022e3f3460bc81ba8935a5cd96e287b790c6f348e4c8053132882fb7673270ebc071a45c
+  languageName: node
+  linkType: hard
+
 "mongoose-legacy-pluralize@npm:1.0.2":
   version: 1.0.2
   resolution: "mongoose-legacy-pluralize@npm:1.0.2"
@@ -8227,6 +8257,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "simple-sever@workspace:."
   dependencies:
+    "@hapi/joi": ^17.1.1
     "@nestjs/cli": ^7.0.0
     "@nestjs/common": ^7.0.0
     "@nestjs/config": ^0.5.0
@@ -8247,6 +8278,7 @@ fsevents@^1.2.7:
     eslint-plugin-import: ^2.20.1
     jest: 26.0.1
     joi: ^17.2.0
+    mongodb: ^3.6.0
     mongoose: ^5.9.28
     nestjs-typegoose: ^7.1.32
     prettier: ^1.19.1
