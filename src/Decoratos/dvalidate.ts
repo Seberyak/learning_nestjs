@@ -1,11 +1,9 @@
-import { validationError } from '../Errors/ValidationError';
+import { validationError } from '../Errors/validationerror';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { IAPOSTUserSchema } from '../users/Types/IAPOSTUserSchema';
+import { IAPOSTUserSchema } from '../users/validators';
 
 
 export const DValidate = createParamDecorator((schema, ctx:ExecutionContext)=>{
-
-
 
   try {
     const data:IAPOSTUserSchema = {...ctx.switchToHttp().getRequest().body, ...ctx.switchToHttp().getRequest().query, ...ctx.switchToHttp().getRequest().params};

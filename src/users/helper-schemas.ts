@@ -1,9 +1,8 @@
-import Joi from '../../joi';
+import Joi from '../joi';
 
+export const userSchema = Joi.object({
 
-export const HelperSchema = Joi.object({
-
- id : Joi.objectId().optional(),
+  id : Joi.objectId().optional(),
 
   username: Joi.string()
     .alphanum()
@@ -25,3 +24,18 @@ export const HelperSchema = Joi.object({
     .max(new Date(2010,0))
     .required()
 });
+
+export type IUser  =  {
+
+  _id:ReturnType<typeof Joi.objectId>,
+
+  username:string,
+
+  password:string,
+
+  email:string,
+
+  birth:Date
+
+
+};

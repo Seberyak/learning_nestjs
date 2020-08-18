@@ -1,7 +1,7 @@
 import {prop} from '@typegoose/typegoose';
-import { IHelperSchema } from './Types/IHelperSchema';
+import { IUser} from './helper-schemas';
 
-export  class users implements Omit<IHelperSchema, "_id">{
+export  class Users implements Omit<IUser, "_id">{
 
 
     @prop()

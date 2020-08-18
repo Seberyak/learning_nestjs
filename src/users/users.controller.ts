@@ -1,15 +1,15 @@
 import { Controller, Get, Post, Put } from '@nestjs/common';
 import {UsersService} from './users.service';
-import {users} from './Users';
-import {DValidate} from '../Decoratos/DValidate';
-
-import { UserIdSchema } from './Schemas/AGETUserSchema';
-import { UserUpdateSchema } from './Schemas/APUTUserSchema';
-import { APOSTUserSchema } from './Schemas/APOSTUserSchema';
-
-import { IAGETUserSchema } from './Types/IAGETUserSchema';
-import { IAPUTUserSchema } from './Types/IAPUTUserSchema';
-import { IAPOSTUserSchema } from './Types/IAPOSTUserSchema';
+import {Users} from './users';
+import {DValidate} from '../Decoratos/dvalidate';
+import {
+  AGETUserSchema,
+  APOSTUserSchema,
+  APUTUserSchema,
+  IAGETUserSchema,
+  IAPOSTUserSchema,
+  IAPUTUserSchema,
+} from './validators';
 
 
 
@@ -24,25 +24,25 @@ export class UsersController {
 
 
   @Get('list')
-  async listUser():Promise <users[]| null>{
+  async listUser():Promise <Users[]| null>{
     return await this.userService.listUsers();
   }
 
 
   @Post('user')
-  async createUser(@DValidate(APOSTUserSchema) usr:IAPOSTUserSchema): Promise<users> {
+  async createUser(@DValidate(APOSTUserSchema) usr:IAPOSTUserSchema): Promise<Users> {
 
       return await this.userService.createCustomUser(usr);
     }
 
   @Get('user/:id')
-  async getUser(@DValidate(UserIdSchema) data:IAGETUserSchema):Promise<users>{
+  async getUser(@DValidate(AGETUserSchema) data:IAGETUserSchema):Promise<Users>{
 
     return await  this.userService.getUserById(data.id);
   }
 
   @Put('user/:id')
-  async updateUser(@DValidate(UserUpdateSchema) data:IAPUTUserSchema):Promise<users>{
+  async updateUser(@DValidate(APUTUserSchema) data:IAPUTUserSchema):Promise<Users>{
     return await this.userService.updateUser(data);
   }
 
