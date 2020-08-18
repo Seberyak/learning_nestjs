@@ -1,18 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
+import { UsersModules } from './users/users.modules';
 import {TypegooseModule} from 'nestjs-typegoose';
-import { ValidateService } from './validate/validate.service';
-
 
 
 
 @Module({
   imports: [TypegooseModule.forRoot('mongodb://localhost:27017/nest'),
-    UserModule],
+    UsersModules],
   controllers:[AppController],
-  providers:[AppService, ValidateService]
+  providers:[AppService]
 })
 
 export class AppModule {}

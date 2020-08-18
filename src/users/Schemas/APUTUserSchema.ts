@@ -1,7 +1,7 @@
-import Joi from '../joi';
+import Joi from '../../joi';
 
 
-export const UserUpdateScheme = Joi.object({
+export const UserUpdateSchema = Joi.object({
   id : Joi.objectId().required(),
 
   username: Joi.string()
@@ -11,7 +11,7 @@ export const UserUpdateScheme = Joi.object({
     .optional(),
 
   password: Joi.string()
-    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}'))
+    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
     .optional(),
 
   email: Joi.string()
