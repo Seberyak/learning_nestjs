@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { Users } from './users';
-import { MError } from '../Errors/merror';
+import { MError } from '../errors/merror';
 
 
 

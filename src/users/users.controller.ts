@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Put } from '@nestjs/common';
 import {UsersService} from './users.service';
 import {Users} from './users';
-import {DValidate} from '../Decoratos/dvalidate';
+import {DValidate} from '../decoratos/dvalidate';
 import {
   AGETUserSchema,
   APOSTUserSchema,

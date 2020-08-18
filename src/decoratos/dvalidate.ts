@@ -1,4 +1,4 @@
-import { validationError } from '../Errors/validationerror';
+import { validationError } from '../errors/validationerror';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { IAPOSTUserSchema } from '../users/validators';
 

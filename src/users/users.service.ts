@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {Users} from './users';
 import {InjectModel} from 'nestjs-typegoose';
 import {ReturnModelType} from '@typegoose/typegoose';
-import { MError } from '../Errors/merror';
+import { MError } from '../errors/merror';
 import { IAPUTUserSchema} from './validators';
 import Joi from '../joi';
 import { IAPOSTUserSchema } from './validators';
